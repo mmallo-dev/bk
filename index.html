@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de Perforaciones de Oreja</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Simulador de Perforaciones de Oreja</h1>
+    <p class="subtitle">Elegí la oreja, las perforaciones y la cantidad para ver cómo quedarían.</p>
+  </header>
+
+  <main class="app-layout">
+    <aside class="panel">
+      <section class="panel-section">
+        <h2>Oreja</h2>
+        <div class="side-selector" id="side-selector">
+          <label class="side-option">
+            <input type="radio" name="side" value="left">
+            <span>Izquierda</span>
+          </label>
+          <label class="side-option">
+            <input type="radio" name="side" value="right">
+            <span>Derecha</span>
+          </label>
+          <label class="side-option">
+            <input type="radio" name="side" value="both" checked>
+            <span>Ambas</span>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel-section">
+        <h2>Color de la joya</h2>
+        <div class="color-selector" id="color-selector"></div>
+      </section>
+
+      <section class="panel-section">
+        <div class="panel-section-header">
+          <h2>Perforaciones</h2>
+          <button type="button" id="reset-btn" class="reset-btn">Reiniciar</button>
+        </div>
+        <div class="piercing-list" id="piercing-list"></div>
+      </section>
+    </aside>
+
+    <section class="stage" id="stage"></section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Diagrama ilustrativo, no reemplaza el asesoramiento de un profesional del piercing.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

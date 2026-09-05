@@ -1,0 +1,265 @@
+:root {
+  --bg: #f4f1ec;
+  --panel-bg: #ffffff;
+  --ink: #2b2420;
+  --muted: #7a6f65;
+  --accent: #b8895f;
+  --accent-dark: #8f6a47;
+  --border: #e4ddd3;
+  --stage-bg: #efe6da;
+  --card-bg: #ffffff;
+  --shadow: 0 8px 24px rgba(43, 36, 32, 0.08);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.app-header {
+  padding: 28px 24px 12px;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0 0 6px;
+  font-size: 1.7rem;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 20px;
+  padding: 12px 24px 40px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 20px 22px;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 16px;
+}
+
+@media (max-width: 860px) {
+  .panel {
+    position: static;
+  }
+}
+
+.panel-section {
+  margin-bottom: 22px;
+}
+
+.panel-section:last-child {
+  margin-bottom: 0;
+}
+
+.panel-section h2 {
+  font-size: 1rem;
+  margin: 0 0 10px;
+  color: var(--accent-dark);
+}
+
+.panel-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.side-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.side-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 6px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.side-option input {
+  accent-color: var(--accent);
+}
+
+.side-option:has(input:checked) {
+  background: #f6ece0;
+  border-color: var(--accent);
+}
+
+.color-selector {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+.color-swatch.selected {
+  border-color: var(--ink);
+}
+
+.reset-btn {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--ink);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: #ece3d6;
+}
+
+.piercing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.piercing-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 4px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.piercing-row:last-child {
+  border-bottom: none;
+}
+
+.piercing-row label.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.piercing-row input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 16px;
+  height: 16px;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-control button {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  line-height: 1;
+  font-size: 0.9rem;
+}
+
+.qty-control button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.qty-control span {
+  min-width: 14px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background: var(--stage-bg);
+  border-radius: 20px;
+  padding: 30px 20px;
+  min-height: 480px;
+}
+
+.ear-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+}
+
+.ear-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--accent-dark);
+}
+
+.ear-svg-wrap {
+  width: 100%;
+}
+
+.ear-svg-wrap.mirrored svg {
+  transform: scaleX(-1);
+}
+
+.ear-count {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.app-footer {
+  text-align: center;
+  padding: 10px 20px 30px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
