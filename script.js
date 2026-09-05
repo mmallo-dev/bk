@@ -128,9 +128,82 @@ const JEWEL_COLORS = [
   { id: "turquesa", label: "Turquesa", hex: "#7fd8c6" },
 ];
 
+// Modelos reales de Bonkeers Accesorios (www.bonkeersaccesorios.com), tomados
+// de la categoría AROS. Se usan como ejemplo de joya para "vestir" los puntos
+// de perforación seleccionados en el simulador.
+const BONKEERS_PRODUCTS = [
+  {
+    name: "Argollitas Cubic Fini",
+    price: "$79.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollitas-cubic-fini/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/f77e87d3-bb30-41f7-b708-bbd75a94dc6a1-d13aa97303074fae0c16830431216944-320-0.webp",
+  },
+  {
+    name: "Mini hoop basic",
+    price: "$39.250",
+    url: "https://www.bonkeersaccesorios.com/productos/mini-hoop-basic-7-10-12-mm/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/3d6e543a-0f25-4714-914c-79707858d9d3_nube-7e9ca528f8a5bb648f16026958605000-320-0.webp",
+  },
+  {
+    name: "Argollitas Tini",
+    price: "$92.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollitas-tini/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/image-fad2d7cb72cd97149b16221429341603-320-0.webp",
+  },
+  {
+    name: "Argollita Thunder Small",
+    price: "$48.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollita-thunder-small/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/9b0e93d8-628e-4f40-bf56-315b23c884c8-3cd5c63455cf62c66916523169190039-320-0.webp",
+  },
+  {
+    name: "Argollita Circle doble",
+    price: "$45.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollita-circle-doble1/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/ca0b6fe3-0bdc-4d47-9d18-a57a84ccec17-1805fc987830ec7db616421020666780-320-0.webp",
+  },
+  {
+    name: "Mini hoop Lele",
+    price: "$48.250",
+    url: "https://www.bonkeersaccesorios.com/productos/mini-hoop-lele/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/352a74c4-a0f0-4904-8815-f97948b6cd74_nube-96ad392aca65f700a216026955111322-320-0.webp",
+  },
+  {
+    name: "Argollita Camile",
+    price: "$48.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollita-camile/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/faeee800-171b-46b1-a552-fdff99bbb076-590bd9b7c02ef6328d16421044359546-320-0.webp",
+  },
+  {
+    name: "Doble Pasante Baby",
+    price: "$65.250",
+    url: "https://www.bonkeersaccesorios.com/productos/pasante-baby/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/8ceca2f8-fd56-43be-92f1-f763d512181b_nube-eef92e3bfb1b8a740c16048776384475-320-0.webp",
+  },
+  {
+    name: "Argollitas Jazmin",
+    price: "$98.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollitas-jazmin/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/ff6f1388-5195-4fef-a956-95be4e470aaf-3003cc2d585369524f16481455983582-320-0.webp",
+  },
+  {
+    name: "Argollita Cubic Fini Xs",
+    price: "$39.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollita-cubic-fini-xs/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/55db5fd8-430b-433f-b602-334d1d3829301-959baf7db3ddd0bae016772607906161-320-0.webp",
+  },
+  {
+    name: "Argollitas Links Plata",
+    price: "$145.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollitas-links-plata/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/854f0f06-e06a-4a24-953b-b74605180e19-62702f362b91148e9a16431466472492-320-0.webp",
+  },
+];
+
 const state = {
   side: "both",
   color: JEWEL_COLORS[0].hex,
+  jewelImage: null, // null = usar color plano; si tiene valor, usa la foto del producto Bonkeers
   selections: {}, // id -> { enabled: bool, qty: number }
 };
 
@@ -190,7 +263,20 @@ function earOutlineSVG() {
   `;
 }
 
+let clipIdCounter = 0;
+
 function jewelSVG(x, y, color, radius = 8) {
+  if (state.jewelImage) {
+    const r = radius * 0.62;
+    const clipId = `jewel-clip-${clipIdCounter++}`;
+    return `
+      <g class="jewel">
+        <circle cx="${x}" cy="${y}" r="${radius}" fill="url(#metalGradient)" stroke="#7c848c" stroke-width="0.8"/>
+        <clipPath id="${clipId}"><circle cx="${x}" cy="${y}" r="${r}" /></clipPath>
+        <image href="${state.jewelImage}" x="${x - r}" y="${y - r}" width="${r * 2}" height="${r * 2}"
+          preserveAspectRatio="xMidYMid slice" clip-path="url(#${clipId})" />
+      </g>`;
+  }
   return `
     <g class="jewel">
       <circle cx="${x}" cy="${y}" r="${radius}" fill="url(#metalGradient)" stroke="#7c848c" stroke-width="0.8"/>
@@ -272,16 +358,65 @@ function renderColorSelector() {
   JEWEL_COLORS.forEach((c) => {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "color-swatch" + (state.color === c.hex ? " selected" : "");
+    btn.className = "color-swatch" + (!state.jewelImage && state.color === c.hex ? " selected" : "");
     btn.style.background = c.hex;
     btn.title = c.label;
     btn.setAttribute("aria-label", c.label);
     btn.addEventListener("click", () => {
       state.color = c.hex;
+      state.jewelImage = null;
       renderColorSelector();
+      renderProductGallery();
       renderStage();
     });
     wrap.appendChild(btn);
+  });
+}
+
+function renderProductGallery() {
+  const wrap = document.getElementById("product-gallery");
+  wrap.innerHTML = "";
+
+  BONKEERS_PRODUCTS.forEach((p) => {
+    const card = document.createElement("div");
+    card.className = "product-card" + (state.jewelImage === p.img ? " selected" : "");
+
+    const img = document.createElement("img");
+    img.src = p.img;
+    img.alt = p.name;
+    img.loading = "lazy";
+    card.appendChild(img);
+
+    const info = document.createElement("div");
+    info.className = "product-info";
+    info.innerHTML = `<span class="product-name">${p.name}</span><span class="product-price">${p.price}</span>`;
+    card.appendChild(info);
+
+    const actions = document.createElement("div");
+    actions.className = "product-actions";
+
+    const useBtn = document.createElement("button");
+    useBtn.type = "button";
+    useBtn.className = "product-use-btn";
+    useBtn.textContent = state.jewelImage === p.img ? "En uso" : "Usar esta joya";
+    useBtn.addEventListener("click", () => {
+      state.jewelImage = state.jewelImage === p.img ? null : p.img;
+      renderColorSelector();
+      renderProductGallery();
+      renderStage();
+    });
+    actions.appendChild(useBtn);
+
+    const link = document.createElement("a");
+    link.href = p.url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.className = "product-link";
+    link.textContent = "Ver en Bonkeers";
+    actions.appendChild(link);
+
+    card.appendChild(actions);
+    wrap.appendChild(card);
   });
 }
 
@@ -369,9 +504,11 @@ function setupReset() {
       state.selections[t.id] = { enabled: false, qty: 1 };
     });
     state.color = JEWEL_COLORS[0].hex;
+    state.jewelImage = null;
     state.side = "both";
     document.querySelector('input[name="side"][value="both"]').checked = true;
     renderColorSelector();
+    renderProductGallery();
     renderPiercingList();
     renderStage();
   });
@@ -379,6 +516,7 @@ function setupReset() {
 
 function init() {
   renderColorSelector();
+  renderProductGallery();
   renderPiercingList();
   setupSideSelector();
   setupReset();
