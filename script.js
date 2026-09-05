@@ -252,6 +252,78 @@ const BONKEERS_PRODUCTS = [
     url: "https://www.bonkeersaccesorios.com/productos/argollitas-links-plata/",
     img: "https://acdn-us.mitiendanube.com/stores/364/245/products/854f0f06-e06a-4a24-953b-b74605180e19-62702f362b91148e9a16431466472492-320-0.webp",
   },
+  {
+    name: "Piercing Micro Cristal Titanio",
+    price: "$45.000",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-micro-cristal-titanio-1l0ji/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3260-c4af94e3d67388613517755165662511-320-0.webp",
+  },
+  {
+    name: "Argollita Clicker Annie Titanio (dorada)",
+    price: "$65.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollita-clicker-annie-titanio-dorada-1b5kz/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3360-dda41f1cc33f5a981617756992391592-320-0.webp",
+  },
+  {
+    name: "Piercing Mini Beads Titanio (dorado)",
+    price: "$60.000",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-mini-beads-titanio-dorado-1p96n/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3475-79db4f4c133d4fbc9e17756962122546-320-0.webp",
+  },
+  {
+    name: "Argollita Clicker Titanio Cristales Laterales 12 mm",
+    price: "$65.250",
+    url: "https://www.bonkeersaccesorios.com/productos/argollita-clicker-titanio-cristales-laterales/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/7b19db6b-e135-4ece-858d-93415f6c1da7-d3dd7a69bf2bcf5a0a17196143865254-320-0.webp",
+  },
+  {
+    name: "Piercing Starlite Titanio (dorado)",
+    price: "$60.000",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-starlite-titanio-dorado-1q9zv/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3447-ac70e8f842643974dd17757464340593-320-0.webp",
+  },
+  {
+    name: "Piercing Lust Titanio (dorado)",
+    price: "$60.000",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-lust-titanio-dorado-c8gcg/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3356-f2486999d3b100155e17757458674577-320-0.webp",
+  },
+  {
+    name: "Piercing Corazón Cristal Titanio (dorado)",
+    price: "$45.000",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-corazon-cristal-titanio-dorado-6apg2/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3413-821805de67f64f66be17756982764277-320-0.webp",
+  },
+  {
+    name: "Piercing Florcita Titanio (dorado)",
+    price: "$65.000",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-florcita-titanio-dorado-1rinj/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3512-4ad32e718009b0e01517756965042419-320-0.webp",
+  },
+  {
+    name: "Piercing Donna Titanio (dorado)",
+    price: "$65.000",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-donna-titanio-dorado-6ot44/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3396-c177805862c91a56a917756958981722-320-0.webp",
+  },
+  {
+    name: "Piercing Deny Titanio (dorado)",
+    price: "$65.000",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-deny-titanio-dorado-cjmoj/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3378-9a7b5dbb43cf35e67617756920282333-320-0.webp",
+  },
+  {
+    name: "Piercing Arya Titanio",
+    price: "$65.250",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-arya-titanio-1l7df/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3151-454e3e30971ef2499517755227792729-320-0.webp",
+  },
+  {
+    name: "Piercing Bolita Lisa Titanio",
+    price: "$45.000",
+    url: "https://www.bonkeersaccesorios.com/productos/piercing-bolita-lisa-titanio-dthtz/",
+    img: "https://acdn-us.mitiendanube.com/stores/364/245/products/img_3137-bca3b6c3dd5f76f86e17755217521238-320-0.webp",
+  },
 ];
 
 const state = {
